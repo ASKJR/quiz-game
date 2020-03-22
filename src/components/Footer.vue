@@ -16,5 +16,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+footer {
+}
 </style>

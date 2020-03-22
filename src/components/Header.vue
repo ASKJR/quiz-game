@@ -1,11 +1,9 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item logo" href="#">
+      <router-link :to="{name: 'question'}" tag="a" class="navbar-item logo">
         <div>QUIZ GAME</div>
-        <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" /> -->
-      </a>
-
+      </router-link>
       <a
         role="button"
         class="navbar-burger burger"
@@ -28,9 +26,8 @@
       :class="{'is-active': mobileMenu}"
     >
       <div class="navbar-start">
-        <a class="navbar-item">Prizes</a>
-
-        <a class="navbar-item">Ranking</a>
+        <router-link :to="{name:'prizes'}" tag="a" class="navbar-item">Prizes</router-link>
+        <router-link :to="{name:'ranking'}" tag="a" class="navbar-item">Ranking</router-link>
       </div>
     </div>
   </nav>
