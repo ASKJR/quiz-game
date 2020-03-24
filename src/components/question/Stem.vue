@@ -2,7 +2,7 @@
   <div>
     <div class="columns stem">
       <div class="column is-half is-offset-3">
-        <h1 class="title" v-html="stem"></h1>
+        <h1 class="title" v-html="stemFormatted"></h1>
       </div>
     </div>
   </div>
@@ -10,7 +10,12 @@
 
 <script>
 export default {
-  props: ["stem"]
+  props: ["stem", "questionIndex"],
+  computed: {
+    stemFormatted() {
+      return `${this.questionIndex}. ${this.stem}`;
+    }
+  }
 };
 </script>
 

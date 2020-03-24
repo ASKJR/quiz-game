@@ -15,6 +15,9 @@ export default {
   components: {
     appHeader: Header,
     appFooter: Footer
+  },
+  created() {
+    this.$store.dispatch("loadQuestions");
   }
 };
 </script>

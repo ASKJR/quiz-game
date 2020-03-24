@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <app-question-stem :stem="stem"></app-question-stem>
+  <div v-if="question">
+    <app-question-stem :stem="question.question" :questionIndex="questionIndex"></app-question-stem>
     <app-question-alternative
-      v-for="(alternative,i) in alternatives"
+      v-for="(alternative,i) in question.alternatives"
       :key="i"
       :alternative="alternative"
     ></app-question-alternative>
@@ -14,13 +14,16 @@
 import Stem from "../components/question/Stem.vue";
 import Alternative from "../components/question/Alternative.vue";
 import Next from "../components/question/Next.vue";
+import { mapGetters } from "vuex";
 export default {
-  data() {
-    return {
-      stem:
-        "Which card is on the cover of the Beta rulebook of &quot;Magic: The Gathering&quot;?",
-      alternatives: ["Bog Wraith", "Island", "Rock Hydra", "Elvish Archers"]
-    };
+  computed: {
+    ...mapGetters(["currentQuestion", "currentQuestionIndex"]),
+    question() {
+      return this.currentQuestion;
+    },
+    questionIndex() {
+      return this.currentQuestionIndex + 1;
+    }
   },
   components: {
     appQuestionStem: Stem,

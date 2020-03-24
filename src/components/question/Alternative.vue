@@ -2,7 +2,8 @@
   <div class="columns">
     <div class="column is-half is-offset-3">
       <div class="box">
-        <p v-html="alternative"></p>
+        <span class="title is-4">{{ alternative.letter }}. &nbsp;&nbsp;</span>
+        <span v-html="alternative.text"></span>
       </div>
     </div>
   </div>
