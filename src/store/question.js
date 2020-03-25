@@ -1,5 +1,6 @@
 import axios from "axios"
 import { shuffle } from "../helper/array"
+import { ALTERNATIVES_LETTERS } from "../helper/const"
 
 const state = {
     questions: [],
@@ -30,7 +31,6 @@ const actions = {
         try {
             const response = await axios.get('/', { params: { amount: 15, type:'multiple' }});
             const questions = response.data.results;
-            const letters = ['A', 'B', 'C', 'D'];
             for (let question of questions) {
                 question.alternatives = [];
                 question.alternatives = question.incorrect_answers.map(ia => {
@@ -39,7 +39,7 @@ const actions = {
                 question.alternatives.push({ text: question.correct_answer, is_correct : true});
                 question.alternatives = shuffle(question.alternatives);
                 question.alternatives = question.alternatives.map((qa, index) => {
-                    qa.letter = letters[index];
+                    qa.letter = ALTERNATIVES_LETTERS[index];
                     return qa;
                 })
             }
