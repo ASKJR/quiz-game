@@ -1,5 +1,6 @@
 <template>
   <div v-if="question">
+    <app-question-value :value="questionValue" :difficulty="question.difficulty"></app-question-value>
     <app-question-stem :stem="question.question" :questionIndex="questionIndex"></app-question-stem>
     <app-question-alternative
       v-for="(alternative,i) in question.alternatives"
@@ -14,7 +15,9 @@
 import Stem from "../components/question/Stem.vue";
 import Alternative from "../components/question/Alternative.vue";
 import Next from "../components/question/Next.vue";
+import Value from "../components/question/Value.vue";
 import { mapGetters } from "vuex";
+import { PRIZES } from "../helper/const";
 export default {
   computed: {
     ...mapGetters(["currentQuestion", "currentQuestionIndex"]),
@@ -23,12 +26,16 @@ export default {
     },
     questionIndex() {
       return this.currentQuestionIndex + 1;
+    },
+    questionValue() {
+      return PRIZES[this.currentQuestionIndex];
     }
   },
   components: {
     appQuestionStem: Stem,
     appQuestionAlternative: Alternative,
-    appQuestionNext: Next
+    appQuestionNext: Next,
+    appQuestionValue: Value
   }
 };
 </script>

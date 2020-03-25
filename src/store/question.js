@@ -43,6 +43,7 @@ const actions = {
                     return qa;
                 })
             }
+            console.log(questions);
             commit('loadQuestions', questions);
         } catch(error) {
             console.log(error);
