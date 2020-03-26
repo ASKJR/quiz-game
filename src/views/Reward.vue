@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1 class="title is-1 has-text-centered">Prize List</h1>
+    <h1 class="title is-1 has-text-centered">Rewards</h1>
     <table class="table is-striped is-narrow is-hoverable is-fullwidth">
       <thead>
         <tr>
           <th>
             <abbr title="Position">#</abbr>
           </th>
-          <th>Prize</th>
+          <th>Reward</th>
         </tr>
       </thead>
       <tfoot>
@@ -15,16 +15,16 @@
           <th>
             <abbr title="Position">#</abbr>
           </th>
-          <th>Prize</th>
+          <th>Reward</th>
         </tr>
       </tfoot>
       <tbody>
         <tr
-          v-for="(prize,index) in prizes"
+          v-for="(prize,index) in rewards"
           :key="index"
-          :class="{'is-selected': index + 1 == (prizes.length - currentQuestionIndex)}"
+          :class="{'is-selected': index + 1 == (rewards.length - currentQuestionIndex)}"
         >
-          <th>{{ prizes.length - index }}</th>
+          <th>{{ rewards.length - index }}</th>
           <td>{{ prize | money }}</td>
         </tr>
       </tbody>
@@ -33,13 +33,13 @@
 </template>
 
 <script>
-import { PRIZES } from "../helper/const";
+import { REWARDS } from "../helper/const";
 import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters(["currentQuestionIndex"]),
-    prizes() {
-      return PRIZES.slice().reverse();
+    rewards() {
+      return REWARDS.slice().reverse();
     }
   }
 };

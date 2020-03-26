@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Prize from '../views/Prize.vue'
+import Reward from '../views/Reward.vue'
 import Ranking from '../views/Ranking.vue'
 import Question from '../views/Question.vue'
 
@@ -13,9 +13,9 @@ const routes = [
     component: Question
   },  
   {
-    path: '/prizes',
-    name: 'prizes',
-    component: Prize
+    path: '/rewards',
+    name: 'rewards',
+    component: Reward
   },
   {
     path: '/ranking',

@@ -26,7 +26,7 @@
       :class="{'is-active': mobileMenu}"
     >
       <div class="navbar-start">
-        <router-link :to="{name:'prizes'}" tag="a" class="navbar-item">Rewards</router-link>
+        <router-link :to="{name:'rewards'}" tag="a" class="navbar-item">Rewards</router-link>
         <router-link :to="{name:'ranking'}" tag="a" class="navbar-item">Ranking</router-link>
       </div>
     </div>

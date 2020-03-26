@@ -21,7 +21,7 @@ import Alternative from "../components/question/Alternative.vue";
 import Next from "../components/question/Next.vue";
 import Banner from "../components/question/Banner.vue";
 import { mapGetters } from "vuex";
-import { PRIZES } from "../helper/const";
+import { REWARDS } from "../helper/const";
 export default {
   computed: {
     ...mapGetters(["currentQuestion", "currentQuestionIndex"]),
@@ -32,7 +32,7 @@ export default {
       return this.currentQuestionIndex + 1;
     },
     questionValue() {
-      return PRIZES[this.currentQuestionIndex];
+      return REWARDS[this.currentQuestionIndex];
     }
   },
   components: {
