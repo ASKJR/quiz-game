@@ -13,7 +13,6 @@ const getters = {
     currentQuestionIndex(state) {
         return state.currentQuestionIndex;
     }
-    
 }
 
 const mutations = {
@@ -22,6 +21,25 @@ const mutations = {
     },
     incrementQuestionIndex: (state) => {
         state.currentQuestionIndex++;
+    },
+    checkAnswer: (state, userAlternativeId) => {
+
+        const { alternatives } = state.questions[state.currentQuestionIndex];
+        
+        const correctAlternative = alternatives.find(alternative => {
+            return alternative.is_correct;
+        });
+
+        correctAlternative.checkedClass = { correct:true }
+        
+        if (correctAlternative.id != userAlternativeId) {
+
+            const wrongAlternative = alternatives.find(alternative => {
+                return userAlternativeId == alternative.id;
+            });
+
+            wrongAlternative.checkedClass = { wrong: true }
+        }
     }
 }
 
@@ -42,6 +60,9 @@ const actions = {
     },
     incrementQuestionIndex: ({commit}) => {
         commit('incrementQuestionIndex');
+    },
+    checkAnswer:({commit, state}, payload) => {
+        commit('checkAnswer', payload);
     }
 }
 

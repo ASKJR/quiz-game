@@ -2,6 +2,7 @@ import axios from "axios";
 import { QUIZ_API_BASE_URL } from '../helper/const'
 import { shuffle } from "../helper/array"
 import { ALTERNATIVES_LETTERS } from "../helper/const"
+import { v4 as uuidv4 } from 'uuid';
 
 axios.defaults.baseURL = QUIZ_API_BASE_URL;
 
@@ -15,16 +16,17 @@ export const QuizApiService  = {
             
             question.alternatives = [];
             question.alternatives = question.incorrect_answers.map(ia => {
-                return {text:ia, is_correct:false};
+                return { id: uuidv4(), text:ia, is_correct:false, checkedClass:{} };
             })
 
-            question.alternatives.push({ text: question.correct_answer, is_correct : true});
+            question.alternatives.push({ id: uuidv4(), text: question.correct_answer, is_correct : true, checkedClass:{} });
             question.alternatives = shuffle(question.alternatives);
             question.alternatives = question.alternatives.map((qa, index) => {
                 qa.letter = ALTERNATIVES_LETTERS[index];
                 return qa;
             })
         }
+        console.log(questions);
 
         return questions;
     }
