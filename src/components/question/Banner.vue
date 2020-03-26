@@ -4,8 +4,9 @@
       <section class="hero" :class="difficultyStyle">
         <div class="hero-body">
           <div class="container has-text-centered">
-            <h2 class="subtitle">REWARD</h2>
-            <h1 class="title">{{ value | money }}</h1>
+            <h2 class="subtitle is-4">REWARD</h2>
+            <h1 class="title is-1">{{ value | money }}</h1>
+            <h2 class="subtitle is-6">{{ category }}</h2>
           </div>
         </div>
       </section>
@@ -15,7 +16,7 @@
 
 <script>
 export default {
-  props: ["value", "difficulty"],
+  props: ["value", "difficulty", "category"],
   computed: {
     difficultyStyle() {
       switch (this.difficulty) {

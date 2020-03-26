@@ -1,6 +1,10 @@
 <template>
   <div v-if="question">
-    <app-question-value :value="questionValue" :difficulty="question.difficulty"></app-question-value>
+    <app-question-banner
+      :value="questionValue"
+      :difficulty="question.difficulty"
+      :category="question.category"
+    ></app-question-banner>
     <app-question-stem :stem="question.question" :questionIndex="questionIndex"></app-question-stem>
     <app-question-alternative
       v-for="(alternative,i) in question.alternatives"
@@ -15,7 +19,7 @@
 import Stem from "../components/question/Stem.vue";
 import Alternative from "../components/question/Alternative.vue";
 import Next from "../components/question/Next.vue";
-import Value from "../components/question/Value.vue";
+import Banner from "../components/question/Banner.vue";
 import { mapGetters } from "vuex";
 import { PRIZES } from "../helper/const";
 export default {
@@ -35,7 +39,7 @@ export default {
     appQuestionStem: Stem,
     appQuestionAlternative: Alternative,
     appQuestionNext: Next,
-    appQuestionValue: Value
+    appQuestionBanner: Banner
   }
 };
 </script>

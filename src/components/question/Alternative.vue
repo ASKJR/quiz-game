@@ -10,10 +10,10 @@
             </div>
           </div>
           <div class="media-left">
-            <span class="icon is-small" v-if="alternative.checkedClass.correct != undefined">
+            <span class="icon is-small" v-if="alternative.checkedClass.correct">
               <i class="fas fa-lg fa-check"></i>
             </span>
-            <span class="icon is-small" v-if="alternative.checkedClass.wrong != undefined">
+            <span class="icon is-small" v-if="alternative.checkedClass.wrong">
               <i class="fas fa-lg fa-times"></i>
             </span>
           </div>
