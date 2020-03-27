@@ -1,5 +1,5 @@
 <template>
-  <div class="columns" v-if="currentQuestionIndex != 14">
+  <div class="columns" v-if="currentQuestionIndex != 14 && next">
     <div class="column is-half is-offset-3">
       <button class="button is-fullwidth is-link is-large" @click="nextQuestion">
         <strong>NEXT QUESTION</strong>
@@ -9,14 +9,16 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["currentQuestionIndex"])
+    ...mapGetters(["currentQuestionIndex", "next"])
   },
   methods: {
+    ...mapActions(["incrementQuestionIndex", "showNext"]),
     nextQuestion() {
-      this.$store.dispatch("incrementQuestionIndex");
+      this.incrementQuestionIndex();
+      this.showNext(false);
     }
   }
 };

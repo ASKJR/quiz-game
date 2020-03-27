@@ -22,23 +22,11 @@ const mutations = {
     incrementQuestionIndex: (state) => {
         state.currentQuestionIndex++;
     },
-    checkAnswer: (state, userAlternativeId) => {
+    checkAnswer: (state, payload) => {
+        payload.correctAlternative.checkedClass = { correct:true }
 
-        const { alternatives } = state.questions[state.currentQuestionIndex];
-        
-        const correctAlternative = alternatives.find(alternative => {
-            return alternative.is_correct;
-        });
-
-        correctAlternative.checkedClass = { correct:true }
-        
-        if (correctAlternative.id != userAlternativeId) {
-
-            const wrongAlternative = alternatives.find(alternative => {
-                return userAlternativeId == alternative.id;
-            });
-
-            wrongAlternative.checkedClass = { wrong: true }
+        if (payload.wrongAlternative) {
+            payload.wrongAlternative.checkedClass = { wrong: true }
         }
     }
 }
@@ -53,6 +41,9 @@ const actions = {
             const questions = [...easyQuestions, ...mediumQuestions, ...hardQuestions];
             
             commit('loadQuestions', questions);
+
+            console.log(questions);
+        
             
         } catch(error) {
             console.log(error);
@@ -61,8 +52,32 @@ const actions = {
     incrementQuestionIndex: ({commit}) => {
         commit('incrementQuestionIndex');
     },
-    checkAnswer:({commit, state}, payload) => {
-        commit('checkAnswer', payload);
+    checkAnswer:({commit, state, getters}, userAlternativeId) => {
+        
+        if (getters.gameOver || getters.next) {
+            return;
+        }
+
+        const { alternatives } = state.questions[state.currentQuestionIndex];
+        
+        const correctAlternative = alternatives.find(alternative => {
+            return alternative.is_correct;
+        });
+        
+        if (correctAlternative.id != userAlternativeId) {
+
+            const wrongAlternative = alternatives.find(alternative => {
+                return userAlternativeId == alternative.id;
+            });
+            
+            commit('endGame');
+            commit('checkAnswer', {correctAlternative, wrongAlternative });
+            commit('showNext', false);
+
+        } else {
+            commit('checkAnswer', {correctAlternative, wrongAlternative: false });
+            commit('showNext', true);
+        }
     }
 }
 
