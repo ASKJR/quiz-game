@@ -11,12 +11,15 @@ const getters  = {
     },
     gameOver(state) {
         return state.gameOver;
+    },
+    balance(state) {
+        return state.balance;
     }
 }
 
 const mutations = {
-    setBalance(state, { currentQuestionIndex }) {
-        state.balance = REWARDS[currentQuestionIndex - 1];
+    updateBalance(state, balance) {
+        state.balance = balance;
     },
     endGame(state) {
         state.gameOver = true;
@@ -28,8 +31,11 @@ const mutations = {
 }
 
 const actions = {
-    setBalance({commit, getters}) {
-        commit('setBalance', getters);
+    updateBalance({commit, getters}) {
+        const  { currentQuestionIndex } = getters
+        const balance = REWARDS[currentQuestionIndex];
+        console.log(balance);
+        commit('updateBalance', balance);
     },
     endGame({commit}) {
         commit('endGame');

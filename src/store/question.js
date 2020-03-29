@@ -52,7 +52,7 @@ const actions = {
     incrementQuestionIndex: ({commit}) => {
         commit('incrementQuestionIndex');
     },
-    checkAnswer:({commit, state, getters}, userAlternativeId) => {
+    checkAnswer:({commit, state, getters, dispatch}, userAlternativeId) => {
         
         if (getters.gameOver || getters.next) {
             return;
@@ -72,11 +72,12 @@ const actions = {
             
             commit('endGame');
             commit('checkAnswer', {correctAlternative, wrongAlternative });
-            commit('showNext', false);
+            dispatch('showNext', false);
 
         } else {
             commit('checkAnswer', {correctAlternative, wrongAlternative: false });
-            commit('showNext', true);
+            dispatch('updateBalance');
+            dispatch('showNext', true);
         }
     }
 }
