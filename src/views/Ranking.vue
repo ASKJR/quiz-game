@@ -8,23 +8,12 @@
             <abbr title="User">User</abbr>
           </th>
           <th>Prize</th>
-          <th>Time</th>
         </tr>
       </thead>
-      <tfoot>
-        <tr>
-          <th>
-            <abbr title="User">User</abbr>
-          </th>
-          <th>Ranking</th>
-          <th>Time</th>
-        </tr>
-      </tfoot>
       <tbody>
-        <tr>
-          <th>15</th>
-          <td>$1 MILLION</td>
-          <td>150</td>
+        <tr v-for="user in ranking" :key="user.id">
+          <th>{{ user.name }}</th>
+          <td>{{ user.balance | money }}</td>
         </tr>
       </tbody>
     </table>
@@ -32,7 +21,12 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["ranking"])
+  }
+};
 </script>
 
 <style>

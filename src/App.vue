@@ -18,6 +18,7 @@ export default {
   },
   created() {
     this.$store.dispatch("loadQuestions");
+    this.$store.dispatch("loadRanking");
   }
 };
 </script>

@@ -1,10 +1,8 @@
-import axios from "axios";
-import { QUIZ_API_BASE_URL } from '../helper/const'
+import { quiz as axios } from "../axios";
+import { ALTERNATIVES_LETTERS } from '../helper/const'
 import { shuffle } from "../helper/array"
-import { ALTERNATIVES_LETTERS } from "../helper/const"
 import { v4 as uuidv4 } from 'uuid';
 
-axios.defaults.baseURL = QUIZ_API_BASE_URL;
 
 export const QuizApiService  = {
     async getQuestions(amount, difficulty) {
