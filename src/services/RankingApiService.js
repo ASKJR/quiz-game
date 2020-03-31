@@ -1,4 +1,5 @@
 import { ranking as axios } from "../axios";
+import { sortRanking } from "../helper/array"
 
 export const RankingApiService = {
     async save(record) {
@@ -13,13 +14,16 @@ export const RankingApiService = {
         try {
             const response = await axios.get('/ranking.json');
             const { data } = response;
+            console.log(data);
             const ranking = [];
             for (let key in data) {
                 const record = data[key];
                 record.id = key;
                 ranking.push(record);
             }
-            return ranking;
+            //limit ranking in 10 positions
+            return sortRanking(ranking).slice(0,10);
+
           } catch (error) {
             console.error(error);
           }

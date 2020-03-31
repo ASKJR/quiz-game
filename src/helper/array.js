@@ -8,3 +8,7 @@ export const shuffle = (array) => {
     }
     return array;
 }
+
+export const sortRanking = (ranking) => {
+    return ranking.sort((a,b) => (a.balance > b.balance) ? -1 : (b.balance > a.balance) ? 1 : 0);
+}
