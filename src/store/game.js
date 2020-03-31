@@ -35,6 +35,12 @@ const mutations = {
     },
     loadRanking(state, ranking) {
         state.ranking = ranking;
+    },
+    restart(state) {
+        state.balance = 0
+        state.gameOver = false,
+        state.showNext = false,
+        state.ranking =  []
     }
 }
 
@@ -58,6 +64,13 @@ const actions = {
     async loadRanking({commit}) {
         const ranking = await RankingApiService.fetch();
         commit('loadRanking', ranking);
+    },
+    restart({commit, dispatch}) {
+        commit('restart');
+        dispatch('setQuestionIndex', 0);
+        dispatch('loadQuestions');
+        dispatch('loadRanking');
+
     }
 }
 

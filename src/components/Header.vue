@@ -35,6 +35,7 @@
       <div class="navbar-start">
         <router-link :to="{name:'rewards'}" tag="a" class="navbar-item">Rewards</router-link>
         <router-link :to="{name:'ranking'}" tag="a" class="navbar-item">Ranking</router-link>
+        <a class="navbar-item" v-if="gameOver" @click="newGame">Restart</a>
       </div>
     </div>
 
@@ -52,6 +53,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -60,8 +62,13 @@ export default {
     };
   },
   computed: {
-    balance() {
-      return this.$store.getters.balance;
+    ...mapGetters(["balance", "gameOver"])
+  },
+  methods: {
+    ...mapActions(["restart"]),
+    newGame() {
+      this.restart();
+      this.$router.push({ name: "question" });
     }
   }
 };

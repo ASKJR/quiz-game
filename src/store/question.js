@@ -22,6 +22,9 @@ const mutations = {
     incrementQuestionIndex: (state) => {
         state.currentQuestionIndex++;
     },
+    setQuestionIndex: (state, index) => {
+        state.currentQuestionIndex = index;
+    },
     checkAnswer: (state, payload) => {
         payload.correctAlternative.checkedClass = { correct:true }
 
@@ -51,6 +54,9 @@ const actions = {
     },
     incrementQuestionIndex: ({commit}) => {
         commit('incrementQuestionIndex');
+    },
+    setQuestionIndex: ({commit}, index) => {
+        commit('setQuestionIndex', index);
     },
     checkAnswer:({commit, state, getters, dispatch}, userAlternativeId) => {
         
