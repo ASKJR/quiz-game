@@ -24,11 +24,53 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   props: ["alternative"],
+  computed: {
+    ...mapGetters(["gameOver", "showToast", "winner"])
+  },
   methods: {
+    ...mapActions(["saveRanking"]),
+
     checkAnswer() {
       this.$store.dispatch("checkAnswer", this.alternative.id);
+      if (this.gameOver && this.showToast) {
+        this.$buefy.toast.open({
+          duration: 3500,
+          message: `GAME OVER`,
+          position: "is-bottom",
+          type: "is-danger"
+        });
+        setTimeout(() => {
+          this.prompt();
+        }, 3500);
+      }
+      if (this.winner && this.showToast) {
+        this.$buefy.toast.open({
+          duration: 3500,
+          message: `VICTORY`,
+          position: "is-bottom",
+          type: "is-success"
+        });
+        setTimeout(() => {
+          this.prompt();
+        }, 3500);
+      }
+    },
+    prompt() {
+      this.$buefy.dialog.prompt({
+        title: "Ranking",
+        message: `Type your nickname to save your result in the ranking list.`,
+        inputAttrs: {
+          placeholder: "e.g. Walter",
+          maxlength: 10
+        },
+        trapFocus: true,
+        onConfirm: name => {
+          this.saveRanking(name);
+        }
+      });
     }
   }
 };

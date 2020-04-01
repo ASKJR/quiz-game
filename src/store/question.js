@@ -60,7 +60,8 @@ const actions = {
     },
     checkAnswer:({commit, state, getters, dispatch}, userAlternativeId) => {
         
-        if (getters.gameOver || getters.next) {
+        if (getters.gameOver || getters.next || getters.winner) {
+            dispatch('showToast', false);
             return;
         }
 
@@ -78,12 +79,23 @@ const actions = {
             
             commit('endGame');
             commit('checkAnswer', {correctAlternative, wrongAlternative });
+            dispatch('showToast', true);
             dispatch('showNext', false);
 
         } else {
+        
             commit('checkAnswer', {correctAlternative, wrongAlternative: false });
             dispatch('updateBalance');
-            dispatch('showNext', true);
+            
+            //last question check. Verify if user is a millionaire.
+            if (state.currentQuestionIndex + 1 == state.questions.length) {
+                dispatch('winner', true);
+                dispatch('showToast', true);
+                dispatch('showNext', false);
+
+            } else {
+                dispatch('showNext', true);
+            }
         }
     }
 }

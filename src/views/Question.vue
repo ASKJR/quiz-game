@@ -24,13 +24,8 @@ import { mapGetters, mapActions } from "vuex";
 import { REWARDS } from "../helper/const";
 
 export default {
-  data() {
-    return {
-      messageCounter: 0
-    };
-  },
   computed: {
-    ...mapGetters(["currentQuestion", "currentQuestionIndex", "gameOver"]),
+    ...mapGetters(["currentQuestion", "currentQuestionIndex"]),
     question() {
       return this.currentQuestion;
     },
@@ -46,41 +41,6 @@ export default {
     appQuestionAlternative: Alternative,
     appQuestionNext: Next,
     appQuestionBanner: Banner
-  },
-  methods: {
-    ...mapActions(["saveRanking"]),
-    prompt() {
-      this.$buefy.dialog.prompt({
-        title: "Ranking",
-        message: `Type your nickname to save your result in the ranking list.`,
-        inputAttrs: {
-          placeholder: "e.g. Walter",
-          maxlength: 10
-        },
-        trapFocus: true,
-        onConfirm: name => {
-          this.saveRanking(name);
-        }
-      });
-    }
-  },
-  watch: {
-    gameOver(state) {
-      if (state) {
-        if (this.messageCounter == 0) {
-          this.$buefy.toast.open({
-            duration: 3500,
-            message: `GAME OVER`,
-            position: "is-bottom",
-            type: "is-danger"
-          });
-          this.messageCounter++;
-          setTimeout(() => {
-            this.prompt();
-          }, 3500);
-        }
-      }
-    }
   }
 };
 </script>

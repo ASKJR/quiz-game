@@ -35,7 +35,7 @@
       <div class="navbar-start">
         <router-link :to="{name:'rewards'}" tag="a" class="navbar-item">Rewards</router-link>
         <router-link :to="{name:'ranking'}" tag="a" class="navbar-item">Ranking</router-link>
-        <a class="navbar-item" v-if="gameOver" @click="newGame">Restart</a>
+        <a class="navbar-item" v-if="gameOver || winner" @click="newGame">Restart</a>
       </div>
     </div>
 
@@ -62,13 +62,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["balance", "gameOver"])
+    ...mapGetters(["balance", "gameOver", "winner"])
   },
   methods: {
     ...mapActions(["restart"]),
     newGame() {
       this.restart();
-      this.$router.push({ name: "question" });
+      this.$router.push({ name: "question" }).catch(err => {});
     }
   }
 };

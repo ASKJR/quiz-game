@@ -1,5 +1,5 @@
 <template>
-  <div class="columns" v-if="currentQuestionIndex != 14 && next">
+  <div class="columns" v-if="next">
     <div class="column is-half is-offset-3">
       <button class="button is-fullwidth is-link is-large" @click="nextQuestion">
         <strong>NEXT QUESTION</strong>

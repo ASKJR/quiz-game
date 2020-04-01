@@ -4,7 +4,9 @@ const state = {
     balance: 0,
     gameOver: false,
     showNext: false,
-    ranking: []
+    ranking: [],
+    showToast: false,
+    winner: false
 }
 
 const getters  = {
@@ -19,6 +21,12 @@ const getters  = {
     },
     ranking(state) {
         return state.ranking;
+    },
+    showToast(state) {
+        return state.showToast;
+    },
+    winner(state) {
+        return state.winner;
     }
 }
 
@@ -40,7 +48,15 @@ const mutations = {
         state.balance = 0
         state.gameOver = false,
         state.showNext = false,
-        state.ranking =  []
+        state.ranking =  [],
+        state.showNext = false,
+        state.winner = false
+    },
+    showToast(state, payload) {
+        state.showToast = payload;
+    },
+    winner(state, payload) {
+        state.winner = payload;
     }
 }
 
@@ -71,7 +87,14 @@ const actions = {
         dispatch('loadQuestions');
         dispatch('loadRanking');
 
+    },
+    showToast({commit}, payload) {
+        commit('showToast', payload);
+    },
+    winner({commit}, payload) {
+        commit('winner', payload);
     }
+    
 }
 
 export default {
