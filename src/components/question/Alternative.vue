@@ -25,6 +25,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { TOAST_DURATION } from "../../helper/const";
 export default {
   props: ["alternative"],
   computed: {
@@ -35,27 +36,17 @@ export default {
 
     checkAnswer() {
       this.$store.dispatch("checkAnswer", this.alternative.id);
-      if (this.gameOver && this.showToast) {
-        this.$buefy.toast.open({
-          duration: 3500,
-          message: `GAME OVER`,
-          position: "is-bottom",
-          type: "is-danger"
-        });
+
+      if ((this.gameOver || this.winner) && this.showToast) {
+        const message = this.gameOver ? "GAME OVER" : "VICTORY";
+        const type = this.gameOver ? "is-danger" : "is-success";
+        const position = "is-bottom";
+
+        this.$buefy.toast.open({ message, position, type });
+
         setTimeout(() => {
           this.prompt();
-        }, 3500);
-      }
-      if (this.winner && this.showToast) {
-        this.$buefy.toast.open({
-          duration: 3500,
-          message: `VICTORY`,
-          position: "is-bottom",
-          type: "is-success"
-        });
-        setTimeout(() => {
-          this.prompt();
-        }, 3500);
+        }, TOAST_DURATION);
       }
     },
     prompt() {
