@@ -21,6 +21,10 @@ const routes = [
     path: '/ranking',
     name: 'ranking',
     component: Ranking
+  },
+  {
+    path: '*',
+    component: Question
   }
 ]
 
