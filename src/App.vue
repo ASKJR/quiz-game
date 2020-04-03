@@ -15,10 +15,6 @@ export default {
   components: {
     appHeader: Header,
     appFooter: Footer
-  },
-  created() {
-    this.$store.dispatch("loadQuestions");
-    this.$store.dispatch("loadRanking");
   }
 };
 </script>

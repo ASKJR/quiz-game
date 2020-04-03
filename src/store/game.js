@@ -1,10 +1,8 @@
 import { REWARDS } from '../helper/const'
-import { RankingApiService } from '../services/RankingApiService'
 const state = {
     balance: 0,
     gameOver: false,
     showNext: false,
-    ranking: [],
     showToast: false,
     winner: false
 }
@@ -18,9 +16,6 @@ const getters  = {
     },
     balance(state) {
         return state.balance;
-    },
-    ranking(state) {
-        return state.ranking;
     },
     showToast(state) {
         return state.showToast;
@@ -40,9 +35,6 @@ const mutations = {
     showNext(state, showNext) {
         state.showNext = showNext;
 
-    },
-    loadRanking(state, ranking) {
-        state.ranking = ranking;
     },
     restart(state) {
         state.balance = 0
@@ -71,15 +63,6 @@ const actions = {
     },
     showNext({commit}, showNext) {
         commit('showNext', showNext);
-    },
-    async saveRanking({dispatch, state}, name) {
-        const balance = state.balance;
-        const lastRecordSaved = await RankingApiService.save({name, balance});
-        dispatch('loadRanking');
-    },
-    async loadRanking({commit}) {
-        const ranking = await RankingApiService.fetch();
-        commit('loadRanking', ranking);
     },
     restart({commit, dispatch}) {
         commit('restart');

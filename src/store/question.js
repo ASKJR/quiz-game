@@ -3,7 +3,8 @@ import { EASY_DIFFICULTY, MEDIUM_DIFFICULTY, HARD_DIFFICULTY } from '../helper/c
 
 const state = {
     questions: [],
-    currentQuestionIndex: 0
+    currentQuestionIndex: 0,
+    loading: false
 }
 
 const getters = {
@@ -12,12 +13,18 @@ const getters = {
     },
     currentQuestionIndex(state) {
         return state.currentQuestionIndex;
+    },
+    loading(state) {
+        return state.loading;
     }
 }
 
 const mutations = {
     loadQuestions: (state, payload) => {
         state.questions = payload;
+    },
+    loading: (state, payload) => {
+        state.loading = payload;
     },
     incrementQuestionIndex: (state) => {
         state.currentQuestionIndex++;
@@ -37,20 +44,23 @@ const mutations = {
 const actions = {
     loadQuestions:  async ({commit}) => {
         try {
-
+            commit('loading', true);
             const easyQuestions = await QuizApiService.getQuestions(5, EASY_DIFFICULTY);
             const mediumQuestions = await QuizApiService.getQuestions(5, MEDIUM_DIFFICULTY);
             const hardQuestions = await QuizApiService.getQuestions(5, HARD_DIFFICULTY);
             const questions = [...easyQuestions, ...mediumQuestions, ...hardQuestions];
             
             commit('loadQuestions', questions);
-
+            commit('loading', false);
             console.log(questions);
         
             
         } catch(error) {
             console.log(error);
         }
+    },
+    loading: ({commit}, payload) => {
+        commit('loading', payload);
     },
     incrementQuestionIndex: ({commit}) => {
         commit('incrementQuestionIndex');
