@@ -10,8 +10,7 @@
           <img :src="moneyBagIcon" />
         </span>
       </a>
-      <p class="bd-navbar-icon navbar-item is-hidden-desktop">{{ balance | money }}</p>
-
+      <app-balance :isMobile="true"></app-balance>
       <a
         role="button"
         class="navbar-burger burger"
@@ -46,7 +45,7 @@
             <img :src="moneyBagIcon" />
           </span>
         </a>
-        <p class="bd-navbar-icon navbar-item">{{ balance | money }}</p>
+        <app-balance :isMobile="false"></app-balance>
       </div>
     </div>
   </nav>
@@ -54,6 +53,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Balance from "../components/Balance.vue";
 export default {
   data() {
     return {
@@ -62,7 +62,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["balance", "gameOver", "winner"])
+    ...mapGetters(["gameOver", "winner"])
   },
   methods: {
     ...mapActions(["restart"]),
@@ -70,6 +70,9 @@ export default {
       this.restart();
       this.$router.push({ name: "question" }).catch(err => {});
     }
+  },
+  components: {
+    appBalance: Balance
   }
 };
 </script>
