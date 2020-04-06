@@ -60,6 +60,10 @@ export default {
         trapFocus: true,
         onConfirm: name => {
           this.saveRanking(name);
+          this.$buefy.toast.open({
+            message: "SAVED",
+            position: "is-bottom"
+          });
         }
       });
     }
