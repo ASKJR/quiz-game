@@ -21,10 +21,10 @@ const mutations = {
     }
 }
 const actions = {
-    async saveRanking({commit, getters}, name) {
+    async saveRanking({commit, getters}, {name, date}) {
         commit('waitingRanking',true);
         const { balance }  = getters;
-        const lastRecordSaved = await RankingApiService.save({name, balance});
+        const lastRecordSaved = await RankingApiService.save({name, balance, date});
         commit('updateRanking');
         commit('waitingRanking',false);
     },

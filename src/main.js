@@ -7,12 +7,18 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import { money } from "./helper/money"
 import 'vue2-animate/dist/vue2-animate.min.css'
+import VueMoment from 'vue-moment'
+import moment from 'moment-timezone'
 
 Vue.filter('money', (value) => {
     return money(value);
 });
 
 Vue.use(Buefy)
+
+Vue.use(VueMoment, {
+    moment,
+})
 
 Vue.config.productionTip = false
 

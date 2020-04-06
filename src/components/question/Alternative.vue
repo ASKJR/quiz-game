@@ -59,7 +59,8 @@ export default {
         },
         trapFocus: true,
         onConfirm: name => {
-          this.saveRanking(name);
+          const date = this.$moment.utc().format();
+          this.saveRanking({ name, date });
           this.$buefy.toast.open({
             message: "SAVED",
             position: "is-bottom"
