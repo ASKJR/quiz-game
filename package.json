@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "animate.css": "^3.7.2",
     "animated-number-vue": "^1.0.0",
     "axios": "^0.19.2",
     "buefy": "^0.8.13",

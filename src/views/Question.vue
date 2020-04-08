@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="question">
+    <div v-if="question && !loading" :class="animation">
       <app-question-banner
         :value="questionValue"
         :difficulty="question.difficulty"
@@ -28,8 +28,18 @@ import { mapGetters, mapActions } from "vuex";
 import { REWARDS } from "../helper/const";
 
 export default {
+  data() {
+    return {
+      animation: { animated: !this.next, fadeInRight: !this.next }
+    };
+  },
   computed: {
-    ...mapGetters(["currentQuestion", "currentQuestionIndex", "loading"]),
+    ...mapGetters([
+      "currentQuestion",
+      "currentQuestionIndex",
+      "loading",
+      "next"
+    ]),
     question() {
       return this.currentQuestion;
     },
@@ -38,6 +48,14 @@ export default {
     },
     questionValue() {
       return REWARDS[this.currentQuestionIndex];
+    }
+  },
+  watch: {
+    next(show) {
+      this.animation = { animated: !show, fadeInRight: !show };
+      setTimeout(() => {
+        this.animation = {};
+      }, 1000);
     }
   },
   components: {

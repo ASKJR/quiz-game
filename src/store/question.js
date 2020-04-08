@@ -33,10 +33,11 @@ const mutations = {
         state.currentQuestionIndex = index;
     },
     checkAnswer: (state, payload) => {
-        payload.correctAlternative.checkedClass = { correct:true }
+        payload.correctAlternative.checkedClass = { correct:true, animated: true, flash: true};
 
         if (payload.wrongAlternative) {
-            payload.wrongAlternative.checkedClass = { wrong: true }
+            payload.wrongAlternative.checkedClass = { wrong: true, animated: true, shake: true };
+            payload.correctAlternative.checkedClass = { correct:true };
         }
     }
 }

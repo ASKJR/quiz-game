@@ -7,6 +7,7 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import { money } from "./helper/money"
 import 'vue2-animate/dist/vue2-animate.min.css'
+import 'animate.css/animate.min.css'
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
 
