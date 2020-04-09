@@ -1,6 +1,13 @@
 <template>
   <div>
-    <h1 class="title is-1 has-text-centered">Ranking</h1>
+    <div class="columns">
+      <div class="column is-half is-offset-3">
+        <figure class="image">
+          <img :src="rankingImg" alt="ranking" />
+        </figure>
+        <h6 class="subtitle is-5 has-text-centered">Ranking</h6>
+      </div>
+    </div>
     <b-table :data="ranking" :hoverable="true" :mobile-cards="true">
       <template slot-scope="props">
         <b-table-column field="id" label="#">
@@ -37,6 +44,11 @@ import { mapGetters } from "vuex";
 import Loading from "../components/Loading.vue";
 import { moneyTagStyle } from "../helper/money";
 export default {
+  data() {
+    return {
+      rankingImg: require("../assets/ranking.svg")
+    };
+  },
   computed: {
     ...mapGetters(["ranking", "waitingRanking"])
   },

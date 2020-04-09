@@ -1,6 +1,13 @@
 <template>
   <div>
-    <h1 class="title is-1 has-text-centered">Rewards</h1>
+    <div class="columns">
+      <div class="column is-half is-offset-3">
+        <figure class="image">
+          <img :src="rewardImg" alt="reward" />
+        </figure>
+        <h6 class="subtitle is-5 has-text-centered">Rewards</h6>
+      </div>
+    </div>
     <table class="table is-striped is-narrow is-hoverable is-fullwidth">
       <thead>
         <tr>
@@ -36,6 +43,11 @@
 import { REWARDS } from "../helper/const";
 import { mapGetters } from "vuex";
 export default {
+  data() {
+    return {
+      rewardImg: require("../assets/reward.svg")
+    };
+  },
   computed: {
     ...mapGetters(["currentQuestionIndex"]),
     rewards() {
