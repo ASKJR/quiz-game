@@ -24,7 +24,7 @@ export const QuizApiService  = {
                 return qa;
             })
         }
-        console.log(questions);
+        //console.log(questions);
 
         return questions;
     }

@@ -53,7 +53,7 @@ const actions = {
             
             commit('loadQuestions', questions);
             commit('loading', false);
-            console.log(questions);
+            //console.log(questions);
         
             
         } catch(error) {

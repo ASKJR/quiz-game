@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Reward from '../views/Reward.vue'
-import Ranking from '../views/Ranking.vue'
-import Question from '../views/Question.vue'
 
 Vue.use(VueRouter)
 
@@ -10,21 +7,21 @@ const routes = [
   {
     path: '/',
     name: 'question',
-    component: Question
-  },  
+    component: () => import('../views/Question.vue')
+  },   
   {
     path: '/rewards',
     name: 'rewards',
-    component: Reward
+    component: () => import('../views/Reward.vue')
   },
   {
     path: '/ranking',
     name: 'ranking',
-    component: Ranking
+    component: () => import('../views/Ranking.vue')
   },
   {
     path: '*',
-    component: Question
+    component: () => import('../views/Question.vue')
   }
 ]
 
