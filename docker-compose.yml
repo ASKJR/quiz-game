@@ -16,7 +16,7 @@ services:
     expose: 
         - "80"
     external_links:
-        - nginx-proxy.web-base
+        - web.nginx-proxy
     restart: always
     working_dir: /app
 
