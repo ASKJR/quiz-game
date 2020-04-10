@@ -2,7 +2,7 @@ version: '2'
 
 services:
 
-  quiz-app:
+  quiz:
     container_name: web.quiz
     environment:
         - VIRTUAL_HOST=quiz.albertokato.com.br
