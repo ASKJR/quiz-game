@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+
+  quiz-app:
+    container_name: web.quiz
+    environment:
+        - VIRTUAL_HOST=quiz.albertokato.com.br
+        - VIRTUAL_PORT=80
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - .:/app
+    - /app/node_modules
+    expose: 
+        - "80"
+    external_links:
+        - nginx-proxy.web-base
+    restart: always
+    working_dir: /app
+
+networks:
+    default:
+      external:
+        name: main
