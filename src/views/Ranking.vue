@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="column is-half is-offset-3">
         <figure class="image">
-          <img :src="rankingImg" alt="ranking" />
+          <img :src="rankingImg" alt="ranking trophy" />
         </figure>
         <h6 class="subtitle is-5 has-text-centered">Ranking</h6>
       </div>

@@ -7,7 +7,7 @@
 
       <a class="bd-navbar-icon navbar-item is-hidden-desktop logo" href="#">
         <span class="icon" style="color: #333;">
-          <img :src="moneyBagIcon" />
+          <img :src="moneyBagIcon" alt="money bag" />
         </span>
       </a>
       <app-balance :isMobile="true"></app-balance>
@@ -42,7 +42,7 @@
       <div class="navbar-end">
         <a class="bd-navbar-icon navbar-item logo" href="#">
           <span class="icon" style="color: #333;">
-            <img :src="moneyBagIcon" />
+            <img :src="moneyBagIcon" alt="money bag" />
           </span>
         </a>
         <app-balance :isMobile="false"></app-balance>

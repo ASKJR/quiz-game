@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="column is-half is-offset-3">
         <figure class="image">
-          <img :src="rewardImg" alt="reward" />
+          <img :src="rewardImg" alt="golden chest" />
         </figure>
         <h6 class="subtitle is-5 has-text-centered">Rewards</h6>
       </div>
