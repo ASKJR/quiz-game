@@ -10,6 +10,7 @@ import 'vue2-animate/dist/vue2-animate.min.css'
 import 'animate.css/animate.min.css'
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
+import VueGtag from "vue-gtag";
 
 Vue.filter('money', (value) => {
     return money(value);
@@ -20,6 +21,11 @@ Vue.use(Buefy)
 Vue.use(VueMoment, {
     moment,
 })
+
+Vue.use(VueGtag, {
+    config: { id: "G-VLNZ5DF9HL" }
+}, router);
+  
 
 Vue.config.productionTip = false
 
