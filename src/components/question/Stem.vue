@@ -1,10 +1,6 @@
 <template>
-  <div>
-    <div class="columns stem">
-      <div class="column is-half is-offset-3">
-        <h1 class="title" v-html="stemFormatted"></h1>
-      </div>
-    </div>
+  <div class="stem">
+    <h1 class="title" v-html="stemFormatted"></h1>
   </div>
 </template>
 

@@ -1,17 +1,13 @@
 <template>
-  <div class="columns">
-    <div class="column is-half is-offset-3">
-      <section class="hero" :class="difficultyStyle">
-        <div class="hero-body">
-          <div class="container has-text-centered">
-            <h2 class="subtitle is-4">REWARD</h2>
-            <h1 class="title is-1">{{ value | money }}</h1>
-            <h2 class="subtitle is-6">{{ category }}</h2>
-          </div>
-        </div>
-      </section>
+  <section class="hero" :class="difficultyStyle">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h2 class="subtitle is-4">REWARD</h2>
+        <h1 class="title is-1">{{ value | money }}</h1>
+        <h2 class="subtitle is-6">{{ category }}</h2>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

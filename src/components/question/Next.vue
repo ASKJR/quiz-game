@@ -1,10 +1,8 @@
 <template>
-  <div class="columns" v-if="next">
-    <div class="column is-half is-offset-3">
-      <button class="button is-fullwidth is-link is-large" @click="nextQuestion">
-        <strong>NEXT QUESTION</strong>
-      </button>
-    </div>
+  <div v-if="next">
+    <button class="button is-fullwidth is-link is-large" @click="nextQuestion">
+      <strong>NEXT QUESTION</strong>
+    </button>
   </div>
 </template>
 

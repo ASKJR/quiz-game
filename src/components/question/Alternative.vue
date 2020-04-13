@@ -1,25 +1,21 @@
 <template>
-  <div class="columns">
-    <div class="column is-half is-offset-3 alternative" @click="checkAnswer">
-      <div class="box" :class="alternative.checkedClass">
-        <article class="media">
-          <div class="media-content">
-            <div class="content">
-              <span class="title is-4">{{ alternative.letter }}. &nbsp;&nbsp;</span>
-              <span v-html="alternative.text"></span>
-            </div>
-          </div>
-          <div class="media-left">
-            <span class="icon is-small" v-if="alternative.checkedClass.correct">
-              <i class="fas fa-lg fa-check"></i>
-            </span>
-            <span class="icon is-small" v-if="alternative.checkedClass.wrong">
-              <i class="fas fa-lg fa-times"></i>
-            </span>
-          </div>
-        </article>
+  <div class="box alternative" :class="alternative.checkedClass" @click="checkAnswer">
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <span class="title is-4">{{ alternative.letter }}. &nbsp;&nbsp;</span>
+          <span v-html="alternative.text"></span>
+        </div>
       </div>
-    </div>
+      <div class="media-left">
+        <span class="icon is-small" v-if="alternative.checkedClass.correct">
+          <i class="fas fa-lg fa-check"></i>
+        </span>
+        <span class="icon is-small" v-if="alternative.checkedClass.wrong">
+          <i class="fas fa-lg fa-times"></i>
+        </span>
+      </div>
+    </article>
   </div>
 </template>
 

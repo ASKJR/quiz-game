@@ -2,9 +2,13 @@
   <div>
     <app-header></app-header>
     <div class="container">
-      <transition name="fade" mode="out-in">
-        <router-view></router-view>
-      </transition>
+      <div class="column">
+        <div class="column is-half is-offset-3">
+          <transition name="fade" mode="out-in">
+            <router-view></router-view>
+          </transition>
+        </div>
+      </div>
     </div>
     <app-footer></app-footer>
   </div>
