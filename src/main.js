@@ -3,7 +3,7 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import Buefy from 'buefy'
+import { Loading, Icon, Table, Toast, Dialog } from 'buefy'
 import 'buefy/dist/buefy.css'
 import { money } from "./helper/money"
 import 'vue2-animate/dist/vue2-animate.min.css'
@@ -15,7 +15,12 @@ Vue.filter('money', (value) => {
     return money(value);
 });
 
-Vue.use(Buefy)
+Vue.use(Loading)
+Vue.use(Icon)
+Vue.use(Table)
+Vue.use(Toast)
+Vue.use(Dialog)
+
 
 Vue.use(VueMoment)
 
