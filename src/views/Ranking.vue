@@ -28,7 +28,7 @@
         <section class="section">
           <div class="content has-text-grey has-text-centered">
             <p>
-              <b-icon icon="emoticon-sad" size="is-large"></b-icon>
+              <b-icon pack="fas" icon="frown" size="is-large"></b-icon>
             </p>
             <p>Nothing here.</p>
           </div>
