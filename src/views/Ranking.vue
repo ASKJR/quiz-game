@@ -21,7 +21,7 @@
           >{{ props.row.balance | money }}</span>
         </b-table-column>
         <b-table-column field="date" label="Date">
-          <i>{{ props.row.date | moment("DD/MM/YYYY H:mm:ss")}}</i>
+          <i>{{ props.row.date | timestamp }}</i>
         </b-table-column>
       </template>
       <template slot="empty">

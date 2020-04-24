@@ -55,7 +55,7 @@ export default {
         },
         trapFocus: true,
         onConfirm: name => {
-          const date = this.$moment.utc().format();
+          const date = new Date().toISOString();
           this.saveRanking({ name, date });
           this.$buefy.toast.open({
             message: "SAVED",

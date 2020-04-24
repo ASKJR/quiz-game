@@ -6,23 +6,25 @@ import store from './store'
 import { Loading, Icon, Table, Toast, Dialog } from 'buefy'
 import 'buefy/dist/buefy.css'
 import { money } from "./helper/money"
+import { timestamp } from "./helper/date"
 import 'vue2-animate/dist/vue2-animate.min.css'
 import 'animate.css/animate.min.css'
-import VueMoment from 'vue-moment'
 import VueGtag from "vue-gtag";
 
 Vue.filter('money', (value) => {
     return money(value);
 });
 
+Vue.filter('timestamp', (value) => {
+    return timestamp(value);
+});
+
+
 Vue.use(Loading)
 Vue.use(Icon)
 Vue.use(Table)
 Vue.use(Toast)
 Vue.use(Dialog)
-
-
-Vue.use(VueMoment)
 
 Vue.use(VueGtag, {
     config: { id: "G-VLNZ5DF9HL" }
