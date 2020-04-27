@@ -12,9 +12,9 @@ import 'animate.css/animate.min.css'
 import VueGtag from "vue-gtag";
 //font-awesome setup
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faFrown, faTimes, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faFrown, faTimes, faCheck, faRedoAlt, faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(faFrown, faTimes, faCheck);
+library.add(faFrown, faTimes, faCheck, faRedoAlt, faAngleDoubleRight);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(Buefy);

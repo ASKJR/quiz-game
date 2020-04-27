@@ -12,7 +12,7 @@
         :key="i"
         :alternative="alternative"
       ></app-question-alternative>
-      <app-question-next></app-question-next>
+      <app-question-navbar></app-question-navbar>
     </div>
     <app-question-loading :isLoading="loading"></app-question-loading>
   </div>
@@ -21,7 +21,7 @@
 <script>
 import Stem from "../components/question/Stem.vue";
 import Alternative from "../components/question/Alternative.vue";
-import Next from "../components/question/Next.vue";
+import NavBar from "../components/question/NavBar.vue";
 import Banner from "../components/question/Banner.vue";
 import Loading from "../components/Loading.vue";
 import { mapGetters, mapActions } from "vuex";
@@ -61,7 +61,7 @@ export default {
   components: {
     appQuestionStem: Stem,
     appQuestionAlternative: Alternative,
-    appQuestionNext: Next,
+    appQuestionNavbar: NavBar,
     appQuestionBanner: Banner,
     appQuestionLoading: Loading
   },
