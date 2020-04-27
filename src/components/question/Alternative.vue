@@ -8,11 +8,11 @@
         </div>
       </div>
       <div class="media-left">
-        <span class="icon is-small" v-if="alternative.checkedClass.correct">
-          <i class="fas fa-lg fa-check"></i>
+        <span class="icon" v-if="alternative.checkedClass.correct">
+          <font-awesome-icon :icon="['fas','check']" size="lg" />
         </span>
-        <span class="icon is-small" v-if="alternative.checkedClass.wrong">
-          <i class="fas fa-lg fa-times"></i>
+        <span class="icon" v-if="alternative.checkedClass.wrong">
+          <font-awesome-icon :icon="['fas','times']" size="lg" />
         </span>
       </div>
     </article>

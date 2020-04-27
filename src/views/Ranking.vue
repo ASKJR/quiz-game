@@ -28,7 +28,7 @@
         <section class="section">
           <div class="content has-text-grey has-text-centered">
             <p>
-              <b-icon pack="fas" icon="frown" size="is-large"></b-icon>
+              <font-awesome-icon icon="frown" size="3x" />
             </p>
             <p>Nothing here.</p>
           </div>
