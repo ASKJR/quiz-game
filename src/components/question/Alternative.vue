@@ -21,7 +21,6 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import { TOAST_DURATION } from "../../helper/const";
 export default {
   props: ["alternative"],
   computed: {
