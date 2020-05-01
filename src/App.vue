@@ -3,7 +3,7 @@
     <app-header></app-header>
     <div class="container">
       <div class="column">
-        <div class="column is-half is-offset-3">
+        <div class="column is-8 is-offset-2">
           <transition name="fade" mode="out-in">
             <router-view></router-view>
           </transition>

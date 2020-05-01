@@ -39,10 +39,7 @@ export default {
         const position = "is-bottom";
 
         this.$buefy.toast.open({ message, position, type });
-
-        setTimeout(() => {
-          this.prompt();
-        }, TOAST_DURATION);
+        this.prompt();
       }
     },
     prompt() {

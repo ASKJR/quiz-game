@@ -1,6 +1,6 @@
 <template>
   <div class="stem">
-    <h1 class="title" v-html="stemFormatted"></h1>
+    <p class="title" v-html="stemFormatted"></p>
   </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
 
 <style scoped>
 .stem {
-  padding: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 </style>
