@@ -8,7 +8,7 @@
         </strong>
       </button>
     </div>
-    <div v-if="!next && (gameOver || winner)">
+    <div v-if="!next && showRestart && (gameOver || winner)">
       <button class="button is-fullwidth is-info is-large" @click="newGame">
         <strong>
           <font-awesome-icon icon="redo-alt" />&nbsp;RESTART
@@ -22,7 +22,13 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["currentQuestionIndex", "next", "gameOver", "winner"])
+    ...mapGetters([
+      "currentQuestionIndex",
+      "next",
+      "gameOver",
+      "winner",
+      "showRestart"
+    ])
   },
   methods: {
     ...mapActions(["incrementQuestionIndex", "showNext", "restart"]),

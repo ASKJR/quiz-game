@@ -4,6 +4,7 @@ const state = {
     gameOver: false,
     showNext: false,
     showToast: false,
+    showRestart: false,
     winner: false
 }
 
@@ -19,6 +20,9 @@ const getters  = {
     },
     showToast(state) {
         return state.showToast;
+    },
+    showRestart(state) {
+        return state.showRestart;
     },
     winner(state) {
         return state.winner;
@@ -42,10 +46,14 @@ const mutations = {
         state.showNext = false,
         state.ranking =  [],
         state.showNext = false,
+        state.showRestart = false,
         state.winner = false
     },
     showToast(state, payload) {
         state.showToast = payload;
+    },
+    showRestart(state, payload) {
+        state.showRestart = payload;
     },
     winner(state, payload) {
         state.winner = payload;
@@ -73,6 +81,9 @@ const actions = {
     },
     showToast({commit}, payload) {
         commit('showToast', payload);
+    },
+    showRestart({commit}, payload) {
+        commit('showRestart', payload);
     },
     winner({commit}, payload) {
         commit('winner', payload);

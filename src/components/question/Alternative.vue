@@ -21,13 +21,14 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { DIALOG_DELAY } from "../../helper/const";
 export default {
   props: ["alternative"],
   computed: {
     ...mapGetters(["gameOver", "showToast", "winner"])
   },
   methods: {
-    ...mapActions(["saveRanking"]),
+    ...mapActions(["saveRanking", "showRestart"]),
 
     checkAnswer() {
       this.$store.dispatch("checkAnswer", this.alternative.id);
@@ -38,10 +39,13 @@ export default {
         const position = "is-bottom";
 
         this.$buefy.toast.open({ message, position, type });
-        this.prompt();
+
+        setTimeout(() => {
+          this.showRankingInputDialog();
+        }, DIALOG_DELAY);
       }
     },
-    prompt() {
+    showRankingInputDialog() {
       this.$buefy.dialog.prompt({
         title: "Ranking",
         message: `Type your nickname to save your result in the ranking list.`,
@@ -50,6 +54,9 @@ export default {
           maxlength: 10
         },
         trapFocus: true,
+        onCancel: () => {
+          this.showRestart(true);
+        },
         onConfirm: name => {
           const date = new Date().toISOString();
           this.saveRanking({ name, date });
@@ -57,6 +64,8 @@ export default {
             message: "SAVED",
             position: "is-bottom"
           });
+
+          this.showRestart(true);
         }
       });
     }
@@ -71,7 +80,6 @@ export default {
   background-color: #69e793;
   border: 1px solid #008000;
 }
-
 .wrong {
   border: 1px solid #ff0000;
 }

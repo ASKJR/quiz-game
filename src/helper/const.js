@@ -5,3 +5,4 @@ export const FIREBASE_RANKING_URL = 'https://quiz-5eed6.firebaseio.com/'
 export const EASY_DIFFICULTY = 'easy'
 export const MEDIUM_DIFFICULTY = 'medium'
 export const HARD_DIFFICULTY = 'hard'
+export const DIALOG_DELAY = 2000

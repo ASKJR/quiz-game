@@ -34,7 +34,6 @@
       <div class="navbar-start">
         <router-link :to="{name:'rewards'}" tag="a" class="navbar-item">Rewards</router-link>
         <router-link :to="{name:'ranking'}" tag="a" class="navbar-item">Ranking</router-link>
-        <a class="navbar-item" v-if="gameOver || winner" @click="newGame">Restart</a>
       </div>
     </div>
 
@@ -60,16 +59,6 @@ export default {
       mobileMenu: false,
       moneyBagIcon: require("../assets/money.svg")
     };
-  },
-  computed: {
-    ...mapGetters(["gameOver", "winner"])
-  },
-  methods: {
-    ...mapActions(["restart"]),
-    newGame() {
-      this.restart();
-      this.$router.push({ name: "question" }).catch(err => {});
-    }
   },
   components: {
     appBalance: Balance
