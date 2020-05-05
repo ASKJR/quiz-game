@@ -58,6 +58,7 @@ const actions = {
             
         } catch(error) {
             console.log(error);
+            commit('loading', false);
         }
     },
     loading: ({commit}, payload) => {

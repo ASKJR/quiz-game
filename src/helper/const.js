@@ -6,3 +6,4 @@ export const EASY_DIFFICULTY = 'easy'
 export const MEDIUM_DIFFICULTY = 'medium'
 export const HARD_DIFFICULTY = 'hard'
 export const DIALOG_DELAY = 2000
+export const TIMEOUT = 120000

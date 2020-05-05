@@ -14,6 +14,9 @@
       ></app-question-alternative>
       <app-question-navbar></app-question-navbar>
     </div>
+    <div v-if="typeof question === 'undefined' && !loading">
+      <app-error></app-error>
+    </div>
     <app-question-loading :isLoading="loading"></app-question-loading>
   </div>
 </template>

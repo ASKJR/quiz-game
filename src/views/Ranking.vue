@@ -8,7 +8,7 @@
         <h6 class="subtitle is-5 has-text-centered">Ranking</h6>
       </div>
     </div>
-    <b-table :data="ranking" :hoverable="true" :mobile-cards="true">
+    <b-table :data="ranking == null ? undefined : ranking" :hoverable="true" :mobile-cards="true">
       <template slot-scope="props">
         <b-table-column field="id" label="#">
           <strong>{{ props.index + 1 }}</strong>
@@ -25,7 +25,10 @@
         </b-table-column>
       </template>
       <template slot="empty">
-        <section class="section">
+        <section class="section" v-if="ranking === null">
+          <app-error></app-error>
+        </section>
+        <section class="section" v-else>
           <div class="content has-text-grey has-text-centered">
             <p>
               <font-awesome-icon icon="frown" size="3x" />

@@ -26,7 +26,9 @@ export const RankingApiService = {
             return sortRanking(ranking).slice(0,10);
 
           } catch (error) {
+            //Probably timeout from firebase
             console.error(error);
+            return null;
           }
     }
 }
