@@ -7,6 +7,8 @@
  `.___.\__|'.__.'_/[___][_____]  `._____.' \'-;__/[___||__||__]'.__.' 
 </pre>
 
+![Alt text](quiz.png "Title")
+
 ## About
 Test your General Knowledge in different types of topics. This game is inspired on the show <i><b>"who wants to be a millionaire?"</b></i>. You must answer correctly 15 questions to become a millionaire. Difficulty ascends as you progress in the game and questions and their categories are randomized each time you start a new match. At the end of your playthrough you can optionally register your score in the ranking, however only the top 10 results will be displayed. Have fun! :grinning:
 
