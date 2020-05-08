@@ -36,9 +36,8 @@ export default {
       if ((this.gameOver || this.winner) && this.showToast) {
         const message = this.gameOver ? "GAME OVER" : "VICTORY";
         const type = this.gameOver ? "is-danger" : "is-success";
-        const position = "is-bottom";
 
-        this.$buefy.toast.open({ message, position, type });
+        this.$buefy.toast.open({ message, type });
 
         setTimeout(() => {
           this.showRankingInputDialog();
@@ -61,8 +60,7 @@ export default {
           const date = new Date().toISOString();
           this.saveRanking({ name, date });
           this.$buefy.toast.open({
-            message: "SAVED",
-            position: "is-bottom"
+            message: "SAVED"
           });
 
           this.showRestart(true);
