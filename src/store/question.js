@@ -46,10 +46,10 @@ const actions = {
     loadQuestions:  async ({commit}) => {
         try {
             commit('loading', true);
-            const easyQuestions = await QuizApiService.getQuestions(5, EASY_DIFFICULTY);
-            const mediumQuestions = await QuizApiService.getQuestions(5, MEDIUM_DIFFICULTY);
-            const hardQuestions = await QuizApiService.getQuestions(5, HARD_DIFFICULTY);
-            const questions = [...easyQuestions, ...mediumQuestions, ...hardQuestions];
+            const easyQuestions = await QuizApiService.getQuestions(15, EASY_DIFFICULTY);
+            //const mediumQuestions = await QuizApiService.getQuestions(5, MEDIUM_DIFFICULTY);
+            //const hardQuestions = await QuizApiService.getQuestions(5, HARD_DIFFICULTY);
+            const questions = [...easyQuestions];
             
             commit('loadQuestions', questions);
             commit('loading', false);

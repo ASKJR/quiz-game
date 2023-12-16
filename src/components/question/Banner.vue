@@ -15,23 +15,18 @@ export default {
   props: ["value", "difficulty", "category"],
   computed: {
     difficultyStyle() {
-      switch (this.difficulty) {
-        case "easy":
-          return {
+      if (this.difficulty >= 0 && this.difficulty <=4) {
+        return {
             "is-success": true
-          };
-        case "medium":
-          return {
+        };
+      } else if (this.difficulty >= 5 && this.difficulty <= 9) {
+        return {
             "is-warning": true
-          };
-        case "hard":
-          return {
+        };
+      } else {
+        return {
             "is-danger": true
-          };
-        default:
-          return {
-            "is-primary": true
-          };
+        };
       }
     }
   }

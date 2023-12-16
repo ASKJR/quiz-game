@@ -3,7 +3,7 @@
     <div v-if="question && !loading" :class="animation">
       <app-question-banner
         :value="questionValue"
-        :difficulty="question.difficulty"
+        :difficulty="questionIndex"
         :category="question.category"
       ></app-question-banner>
       <app-question-stem :stem="question.question" :questionIndex="questionIndex"></app-question-stem>
