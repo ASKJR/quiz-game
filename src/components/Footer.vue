@@ -3,7 +3,7 @@
     <div class="content has-text-centered">
       <p>
         <strong>Quiz Game</strong> - Developed by
-        <a href="https://albertokato.com.br">Alberto Kato</a>
+        <a href="https://albertokato.com">Alberto Kato</a>
       </p>
       <p>
         <strong>Email</strong> - albertokatojr@gmail.com

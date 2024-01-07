@@ -5,7 +5,7 @@ services:
   quiz:
     container_name: web.quiz
     environment:
-        - VIRTUAL_HOST=quiz.albertokato.com.br
+        - VIRTUAL_HOST=quiz.albertokato.com
         - VIRTUAL_PORT=80
     build:
       context: .

@@ -11,18 +11,23 @@
 </pre>
 
 ## About
+
 Test your General Knowledge in different types of topics. This game is inspired on the show <i><b>"who wants to be a millionaire?"</b></i>. You must answer correctly 15 questions to become a millionaire. Difficulty ascends as you progress in the game and questions and their categories are randomized each time you start a new match. At the end of your playthrough you can optionally register your score in the ranking, however only the top 10 results will be displayed. Have fun! :grinning:
 
 ## Challenge
+
 At the begining of 2020, I decided to improve my frontend skills in order to gain more experience as a Full Stack Developer. I've been learning VueJS since January 2020 and this project is a result of my studies so far. :beginner:
 
 ## Data source for questions
+
 https://opentdb.com/api_config.php
 
 ## Gameplay demo
-https://quiz.albertokato.com.br/
+
+https://quiz.albertokato.com/
 
 ## Technologies
+
 <ul>
   <li>
       VueJS
@@ -50,30 +55,35 @@ https://quiz.albertokato.com.br/
 </ul>
 
 ## Requirements for local setup
+
 Download and Install npm.
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Creator
+
 **Alberto Kato**
-- <https://albertokato.com.br>
+
+- <https://albertokato.com>
 - albertokatojr@gmail.com
 - <https://github.com/ASKJR>
-
-
